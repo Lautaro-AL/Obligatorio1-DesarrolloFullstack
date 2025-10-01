@@ -1,0 +1,20 @@
+{
+  "name": "obligatorio1",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Lautaro-AL/Obligatorio1-DesarrolloFullstack#readme",
+  "bugs": {
+    "url": "https://github.com/Lautaro-AL/Obligatorio1-DesarrolloFullstack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lautaro-AL/Obligatorio1-DesarrolloFullstack.git"
+  },
+  "license": "ISC",
+  "author": "Lautaro Alvarez",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
