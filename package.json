@@ -12,9 +12,17 @@
   },
   "license": "ISC",
   "author": "Lautaro Alvarez",
-  "type": "commonjs",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon api/index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "joi": "^18.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
