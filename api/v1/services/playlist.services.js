@@ -6,4 +6,42 @@ export const crearPlaylistService = async (nuevaPlaylist) => {
   return playlist;
 };
 
-//terminar login y register clase 16-9
+export const obtenerPlaylistsService = async () => {
+  const playlists = await Playlist.find();
+  return playlists;
+};
+
+export const modificarPlaylistService = async (id, datosActualizados) => {
+  let playlistModificada;
+
+  try {
+    playlistModificada = await Playlist.findByIdAndUpdate(
+      id,
+      datosActualizados,
+      { new: true }
+    );
+  } catch (error) {
+    let err = new Error("Error al modificar la playlist");
+    err.status = 400;
+    throw err;
+  }
+
+  if (!playlistModificada) {
+    let err = new Error("No se encontro la playlist");
+    err.status = 404;
+    throw err;
+  }
+
+  return playlistModificada;
+};
+
+export const eliminarPlaylistService = async (id) => {
+  const playlistEliminada = await Playlist.findByIdAndDelete(id);
+  if (!playlistEliminada) {
+    let err = new Error("No se encontro la playlist");
+    err.status = 404;
+    throw err;
+  }
+
+  return playlistEliminada;
+};

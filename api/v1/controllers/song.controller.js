@@ -1,7 +1,6 @@
-export const getSong = (req, res) => {
-  res.status(200).json({ message: "Song route is working!" });
-};
+import { getSongsService } from "../services/song.services.js";
 
-export const createSong = (req, res) => {
-  res.status(200).json({ message: "Create song route" });
+export const getSongs = async (req, res) => {
+  const songs = await getSongsService();
+  res.status(200).json(songs);
 };

@@ -18,10 +18,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/v1", v1Routes);
 
-//middleware de ruta no encontrada
-app.use(notFoundMiddleware);
-
 //middleware de manejo de errores
+app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 
 app.listen(port, () => {

@@ -1,19 +1,19 @@
 import express from "express";
-import { crearPlaylist } from "../controllers/playlist.controller.js";
+import {
+  crearPlaylist,
+  obtenerPlaylists,
+  eliminarPlaylist,
+  modificarPlaylistPorId,
+} from "../controllers/playlist.controller.js";
+import { validateObjectIdMiddleware } from "../middlewares/validateObjectId.middleware.js";
 const router = express.Router();
 
 router.post("/", crearPlaylist);
 
-router.get("/", (req, res) => {
-  res.json({ message: "Get all playlists route" });
-});
+router.get("/", obtenerPlaylists);
 
-router.patch("/:playlistId", (req, res) => {
-  res.json({ message: `Update playlist ${req.params.playlistId} route` });
-});
+router.delete("/:id", validateObjectIdMiddleware, eliminarPlaylist);
 
-router.delete("/:playlistId", (req, res) => {
-  res.json({ message: `Delete playlist ${req.params.playlistId} route` });
-});
+router.patch("/:id", validateObjectIdMiddleware, modificarPlaylistPorId);
 
 export default router;
