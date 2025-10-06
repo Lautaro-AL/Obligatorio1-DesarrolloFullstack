@@ -1,10 +1,8 @@
 import express from "express";
-
+import { crearPlaylist } from "../controllers/playlist.controller.js";
 const router = express.Router();
 
-router.post("/", (req, res) => {
-  res.json({ message: "Create playlist route" });
-});
+router.post("/", crearPlaylist);
 
 router.get("/", (req, res) => {
   res.json({ message: "Get all playlists route" });
