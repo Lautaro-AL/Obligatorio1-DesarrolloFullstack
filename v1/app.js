@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("Api Funcionando");
+  res.json({ message: "Api Funcionando" });
 });
 
 app.use("/v1", v1Routes);
