@@ -30,16 +30,3 @@ export const loginService = async (username, password) => {
   });
   return token;
 };
-
-export const modificarRolService = async (id, nuevoPlan) => {
-  const usuario = await User.findById(id);
-  if (!usuario) {
-    let err = new Error("No se encontró el usuario");
-    err.status = 404;
-    throw err;
-  }
-  usuario.plan = nuevoPlan;
-  await usuario.save();
-  return usuario;
-};
-

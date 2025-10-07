@@ -17,7 +17,7 @@ export const registerSchema = Joi.object({
       "any.required": "La contraseña es obligatoria",
     }),
   confirmPassword: Joi.ref("password"),
-  plan: Joi.string().valid("plus", "premium").default("plus"),
+  plan: Joi.string(),
 });
 
 export const loginSchema = Joi.object({
