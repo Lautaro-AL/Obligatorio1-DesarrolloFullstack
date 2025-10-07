@@ -4,7 +4,7 @@ import playlist from "./routes/playlist.routes.js";
 import songs from "./routes/song.routes.js";
 import categorias from "./routes/categorias.routes.js";
 import user from "./routes/user.routes.js";
-import { authenticateToken } from "../v1/middlewares/auth.middleware.js";
+import { authenticateToken } from "./middlewares/auth.middleware.js";
 
 const router = express.Router({ mergeParams: true });
 
