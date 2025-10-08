@@ -2,7 +2,7 @@ import User from "../models/user.model.js";
 import Plan from "../models/plan.model.js";
 
 export const modificarRolService = async (id, idp) => {
-  const usuario = await User.findById(id).select("username plan -_id");
+  const usuario = await User.findById(id).select("username plan");
   const plan = await Plan.findById(idp);
   if (!usuario) {
     let err = new Error("No se encontró el usuario");
