@@ -8,5 +8,5 @@ export const validateObjectIdMiddleware = (req, res, next) => {
     err.status = 400;
     throw err;
   }
-  next();
+  next(); 
 };

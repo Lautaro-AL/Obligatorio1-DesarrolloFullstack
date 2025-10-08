@@ -1,14 +1,22 @@
 import Playlist from "../models/playlist.model.js";
 import Song from "../models/song.model.js";
+import Plan from "../models/plan.model.js";
 
 export const crearPlaylistService = async (nuevaPlaylist) => {
   const playlist = new Playlist(nuevaPlaylist);
   await playlist.save();
-  return playlist;
+  return await playlist.populate("creadoPor", "username");
 };
 
 export const obtenerPlaylistsService = async () => {
-  const playlists = await Playlist.find();
+  const playlists = await Playlist.find().populate("creadoPor", "username");
+
+  if (!playlists || playlists.length === 0) {
+    const err = new Error("No se encontraron playlists");
+    err.status = 404;
+    throw err;
+  }
+
   return playlists;
 };
 
@@ -60,7 +68,11 @@ export const agregarCancionAPlaylistService = async (
     err.status = 404;
     throw err;
   }
-  if (playlist.creadoPor.plan === "plus" && playlist.canciones.length >= 10) {
+
+  if (
+    playlist.creadoPor.plan.toString() === process.env.PLAN_PLUS_ID &&
+    playlist.canciones.length >= 10
+  ) {
     let err = new Error("Usuarios plus solo pueden 10 canciones por playlist");
     err.status = 400;
     throw err;

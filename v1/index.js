@@ -20,7 +20,3 @@ router.use("/categorias", categorias);
 router.use("/user", user);
 
 export default router;
-
-//  terminar la logica del proyecto
-// verse clase que explica el obligatorio de nuevo
-// ver mongoose, ver en el calendario q clase (notion)

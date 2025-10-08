@@ -11,5 +11,5 @@ export const login = async (req, res) => {
 export const register = async (req, res) => {
   const { username, password, plan } = req.body;
   const token = await registerService(username, password, plan);
-  res.status(200).json({ message: "Usuario registrado correctamente", token });
+  res.status(201).json({ message: "Usuario registrado correctamente", token });
 };

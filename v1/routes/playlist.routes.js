@@ -7,9 +7,17 @@ import {
   agregarCancionAPlaylist,
 } from "../controllers/playlist.controller.js";
 import { validateObjectIdMiddleware } from "../middlewares/validateObjectId.middleware.js";
+import { authenticateToken } from "../middlewares/auth.middleware.js";
+import { validateBody } from "../middlewares/validate.middleware.js";
+import { playlistSchema } from "../validators/auth.validators.js";
 const router = express.Router();
 
-router.post("/", crearPlaylist);
+router.post(
+  "/",
+  authenticateToken,
+  validateBody(playlistSchema),
+  crearPlaylist
+);
 
 router.get("/", obtenerPlaylists);
 

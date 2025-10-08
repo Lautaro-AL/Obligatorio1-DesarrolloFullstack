@@ -3,6 +3,6 @@ import { validateObjectIdMiddleware } from "../middlewares/validateObjectId.midd
 import { modificarRolPorId } from "../controllers/user.controller.js";
 const router = express.Router();
 
-router.patch("/:id/:idPlan", validateObjectIdMiddleware, modificarRolPorId);
+router.patch("/:id:/:idPlan", validateObjectIdMiddleware, modificarRolPorId);
 
 export default router;
