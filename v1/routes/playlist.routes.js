@@ -3,7 +3,7 @@ import {
   crearPlaylist,
   obtenerPlaylists,
   eliminarPlaylist,
-  modificarPlaylistPorId,
+  rPlaylistPorId,
   agregarCancionAPlaylist,
 } from "../controllers/playlist.controller.js";
 import { validateObjectIdMiddleware } from "../middlewares/validateObjectId.middleware.js";
