@@ -25,7 +25,10 @@ export const obtenerPlaylistsService = async (idUsuario) => {
 
 export const obtenerPlaylistsPorIdService = async (id) => {
   const playlist = await Playlist.findById(id)
-    .populate("canciones")
+    .populate({
+      path: "canciones",
+      populate: { path: "categoria" },
+    })
     .populate("creadoPor", "username");
 
   if (!playlist) {
