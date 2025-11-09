@@ -5,6 +5,7 @@ import {
   eliminarPlaylist,
   modificarPlaylistPorId,
   agregarCancionAPlaylist,
+  obtenerPlaylistPorId,
 } from "../controllers/playlist.controller.js";
 import { validateObjectIdMiddleware } from "../middlewares/validateObjectId.middleware.js";
 import { authenticateToken } from "../middlewares/auth.middleware.js";
@@ -20,6 +21,8 @@ router.post(
 );
 
 router.get("/", obtenerPlaylists);
+
+router.get("/detalles/:id", validateObjectIdMiddleware, obtenerPlaylistPorId);
 
 router.delete("/:id", validateObjectIdMiddleware, eliminarPlaylist);
 

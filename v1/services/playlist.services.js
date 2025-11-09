@@ -8,16 +8,32 @@ export const crearPlaylistService = async (nuevaPlaylist) => {
   return await playlist.populate("creadoPor", "username");
 };
 
-export const obtenerPlaylistsService = async () => {
-  const playlists = await Playlist.find().populate("creadoPor", "username");
+export const obtenerPlaylistsService = async (idUsuario) => {
+  const playlists = await Playlist.find({ creadoPor: idUsuario }).populate(
+    "creadoPor",
+    "username"
+  );
 
   if (!playlists || playlists.length === 0) {
-    const err = new Error("No se encontraron playlists");
+    const err = new Error("No se encontraron playlists para este usuario");
     err.status = 404;
     throw err;
   }
 
   return playlists;
+};
+
+export const obtenerPlaylistsPorIdService = async (id) => {
+  const playlist = await Playlist.findById(id)
+    .populate("canciones")
+    .populate("creadoPor", "username");
+
+  if (!playlist) {
+    let err = new Error("No se encontro la playlist");
+    err.status = 404;
+    throw err;
+  }
+  return playlist;
 };
 
 export const modificarPlaylistService = async (id, datosActualizados) => {

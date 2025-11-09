@@ -4,6 +4,7 @@ import {
   obtenerPlaylistsService,
   modificarPlaylistService,
   agregarCancionAPlaylistService,
+  obtenerPlaylistsPorIdService,
 } from "../services/playlist.services.js";
 
 export const crearPlaylist = async (req, res) => {
@@ -18,8 +19,14 @@ export const crearPlaylist = async (req, res) => {
 };
 
 export const obtenerPlaylists = async (req, res) => {
-  const playlists = await obtenerPlaylistsService();
+  const { id } = req.user;
+  const playlists = await obtenerPlaylistsService(id);
   res.status(200).json(playlists);
+};
+export const obtenerPlaylistPorId = async (req, res) => {
+  const { id } = req.params;
+  const playlist = await obtenerPlaylistsPorIdService(id);
+  res.status(200).json(playlist);
 };
 
 export const modificarPlaylistPorId = async (req, res) => {
