@@ -52,4 +52,7 @@ export const playlistSchema = Joi.object({
   descripcion: Joi.string().allow("").max(500).messages({
     "string.max": "La descripción no puede superar 500 caracteres",
   }),
+  imagen: Joi.string().messages({
+    "string.base": "La imagen debe ser una cadena de texto",
+  }),
 });

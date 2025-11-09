@@ -8,11 +8,12 @@ import {
 } from "../services/playlist.services.js";
 
 export const crearPlaylist = async (req, res) => {
-  const { nombre, descripcion } = req.body;
+  const { nombre, descripcion, imagen } = req.body;
   const id = req.user.id;
   const nuevaPlaylist = await crearPlaylistService({
     nombre,
     descripcion,
+    imagen,
     creadoPor: id,
   });
   res.status(201).json({ message: "Playlist creada", nuevaPlaylist });
