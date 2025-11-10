@@ -18,3 +18,12 @@ export const modificarRolService = async (id, idp) => {
   await usuario.save();
   return usuario.populate("plan", "-__v -_id");
 };
+
+export const obtenerPlanesService = async () => {
+  try {
+    const planes = await Plan.find();
+    return planes;
+  } catch (error) {
+    throw new Error("Error al obtener los planes: " + error.message);
+  }
+};
