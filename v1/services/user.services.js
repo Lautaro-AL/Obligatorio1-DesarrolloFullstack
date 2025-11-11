@@ -31,3 +31,13 @@ export const obtenerPlanesService = async () => {
     throw new Error("Error al obtener los planes: " + error.message);
   }
 };
+
+export const obtenerUsuarioPorUsernameService = async (username) => {
+  try {
+    const usuario = await User.findOne({ username }).populate("plan", "-__v");
+    return usuario;
+  } catch (error) {
+    console.error("Error en user.service:", error);
+    throw error;
+  }
+};
