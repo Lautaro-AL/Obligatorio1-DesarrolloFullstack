@@ -1,7 +1,7 @@
 import express from "express";
 import { validateObjectIdMiddleware } from "../middlewares/validateObjectId.middleware.js";
 import {
-  modificarRolPorId,
+  modificarRolPorUsername,
   obtenerPlanes,
 } from "../controllers/user.controller.js";
 const router = express.Router();
@@ -9,7 +9,7 @@ const router = express.Router();
 router.patch(
   "/:username/:idPlan",
   validateObjectIdMiddleware,
-  modificarRolPorId
+  modificarRolPorUsername
 );
 router.get("/planes", obtenerPlanes);
 
