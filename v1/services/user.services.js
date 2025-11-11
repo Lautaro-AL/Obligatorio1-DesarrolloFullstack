@@ -34,7 +34,10 @@ export const obtenerPlanesService = async () => {
 
 export const obtenerUsuarioPorUsernameService = async (username) => {
   try {
-    const usuario = await User.findOne({ username }).populate("plan", "-__v");
+    const usuario = await User.findOne({ username }).populate(
+      "plan",
+      "-__v -password"
+    );
     return usuario;
   } catch (error) {
     console.error("Error en user.service:", error);
