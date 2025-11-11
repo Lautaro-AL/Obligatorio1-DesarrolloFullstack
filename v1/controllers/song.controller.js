@@ -11,5 +11,5 @@ export const getSongs = async (req, res) => {
 export const getCancionesPorCategoria = async (req, res) => {
   const { id } = req.params;
   const canciones = await getCancionesPorCategoriaService(id);
-  res.status(200).json({ canciones });
+  res.status(200).json(canciones);
 };
