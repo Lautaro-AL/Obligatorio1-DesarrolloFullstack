@@ -3,10 +3,10 @@ import {
   obtenerPlanesService,
 } from "../services/user.services.js";
 
-export const modificarRolPorId = async (req, res) => {
-  const { id } = req.params;
+export const modificarRolPorUsername = async (req, res) => {
+  const { username } = req.params;
   const { idPlan } = req.params;
-  const usuarioModificado = await modificarRolService(id, idPlan);
+  const usuarioModificado = await modificarRolService(username, idPlan);
   res.status(200).json({ message: "Rol modificado", usuarioModificado });
 };
 

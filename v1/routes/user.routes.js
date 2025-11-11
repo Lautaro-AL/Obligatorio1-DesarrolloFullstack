@@ -6,7 +6,11 @@ import {
 } from "../controllers/user.controller.js";
 const router = express.Router();
 
-router.patch("/:id/:idPlan", validateObjectIdMiddleware, modificarRolPorId);
+router.patch(
+  "/:username/:idPlan",
+  validateObjectIdMiddleware,
+  modificarRolPorId
+);
 router.get("/planes", obtenerPlanes);
 
 export default router;
