@@ -20,7 +20,7 @@ La aplicación está estructurada en capas para garantizar escalabilidad y mante
 
 - **Controllers**: Manejo de endpoints y solicitudes HTTP  
 - **Services / Lógica de negocio**: Procesamiento de reglas del sistema  
-- **Persistencia**: Acceso a base de datos mediante ORM  
+- **Persistencia**: Acceso a base de datos
 - **Modelos**: Representación de entidades del dominio  
 
 Se aplica separación de responsabilidades siguiendo el modelo cliente-servidor.
@@ -50,7 +50,6 @@ Se aplica separación de responsabilidades siguiendo el modelo cliente-servidor.
 
 - Node.js
 - API REST  
-- ORM  
 - Base de datos NOSQL  
 
 **Herramientas**
